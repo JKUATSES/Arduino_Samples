@@ -1,6 +1,6 @@
 # HOW TO CONTRIBUTE
 
-This is a community project and contributing to it is highly appreciated.
+This is a community project and contributing to it is highly appreciated. One can either contribute code, or documentation. Other valuable ways of contributing are: creating issues, reviewing other people's pull requests, and commenting on issues.
 
 **Step 1:**
 Fork the repository to create a copy of the code under your own github account
