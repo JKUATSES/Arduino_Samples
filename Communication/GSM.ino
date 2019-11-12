@@ -1,11 +1,11 @@
 
 
-#include <TinyGsmClient.h>
 
 //change this if you are using a different modem
 #define TINY_GSM_MODEM_SIM800
 
 #define TINY_GSM_DEBUG SerialMon
+
 
 // Range to attempt to autobaud
 #define GSM_AUTOBAUD_MIN 9600
@@ -13,7 +13,7 @@
 
 // Set serial for debug console (to the Serial Monitor, default speed 115200)
 #define SerialMon Serial
-#define SerialAT Serial1
+#define SerialAT Serial
 #define TINY_GSM_USE_GPRS true
 
 #define TINY_GSM_USE_SMS true
@@ -30,6 +30,7 @@ const char gprs_Pass[] = "";
 
 
 
+#include <TinyGsmClient.h>
 
 #ifdef DUMP_AT_COMMANDS
   #include <StreamDebugger.h>
@@ -91,7 +92,7 @@ void initialize_GSM_and_send_SMS(){
 
 #if TINY_GSM_USE_GPRS
   DBG("Connecting to", apn);
-  if (!modem.gprsConnect(apn, _, _)) {
+  if (!modem.gprsConnect(apn,gprs_User,gprs_Pass)) {
     delay(10000);
     return;
   }
@@ -112,7 +113,7 @@ void initialize_GSM_and_send_SMS(){
   #endif
 
 #if TINY_GSM_USE_SMS && defined(SMS_TARGET)
-  res = send_SMS()
+  res = send_SMS();
 
 #endif
 
