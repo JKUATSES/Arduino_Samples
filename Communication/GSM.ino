@@ -1,15 +1,15 @@
-
 /*
 
+This code uses tinyGSM arduino library(https://github.com/vshymanskyy/TinyGSM) to initialize a gsm connection and send a text to a targed phone number
+The GSM modem used in this example is SIM800. This should be changed to match the modem you are using, if not SIM800
 
+Hardware Requirements: - Arduino or Genuino Board
+                       - GSM/GPRS Shield - SIM800
+                       - SIM card
 Setup:
-First, download the DHT11 library from here: http://playground.arduino.cc/Main/DHTLib
+First, download and install the tinygm arduino library. Canbe found here: https://www.arduinolibraries.info/libraries/tiny-gsm
 
-Hardware connections: DHT11 positive pin to arduino 5V
-                      DHT11 negative pin to ground
-                      DHT11 S pin to Arduino Analog A0 (Can be connected to any analog pin)
-
-Written 11 November 2019
+Written 12 November 2019
 by Sackey Freshia
 */
 
