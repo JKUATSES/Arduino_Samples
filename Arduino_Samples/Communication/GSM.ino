@@ -1,11 +1,23 @@
+/*
 
+This code uses tinyGSM arduino library(https://github.com/vshymanskyy/TinyGSM) to initialize a gsm connection and send a text to a targed phone number
+The GSM modem used in this example is SIM800. This should be changed to match the modem you are using, if not SIM800
 
-#include <TinyGsmClient.h>
+Hardware Requirements: - Arduino or Genuino Board
+                       - GSM/GPRS Shield - SIM800
+                       - SIM card
+Setup:
+First, download and install the tinygm arduino library. Canbe found here: https://www.arduinolibraries.info/libraries/tiny-gsm
+
+Written 12 November 2019
+by Sackey Freshia
+*/
 
 //change this if you are using a different modem
 #define TINY_GSM_MODEM_SIM800
 
 #define TINY_GSM_DEBUG SerialMon
+
 
 // Range to attempt to autobaud
 #define GSM_AUTOBAUD_MIN 9600
@@ -30,6 +42,7 @@ const char gprs_Pass[] = "";
 
 
 
+#include <TinyGsmClient.h>
 
 #ifdef DUMP_AT_COMMANDS
   #include <StreamDebugger.h>
@@ -91,7 +104,7 @@ void initialize_GSM_and_send_SMS(){
 
 #if TINY_GSM_USE_GPRS
   DBG("Connecting to", apn);
-  if (!modem.gprsConnect(apn, _, _)) {
+  if (!modem.gprsConnect(apn,gprs_User,gprs_Pass)) {
     delay(10000);
     return;
   }
@@ -112,7 +125,7 @@ void initialize_GSM_and_send_SMS(){
   #endif
 
 #if TINY_GSM_USE_SMS && defined(SMS_TARGET)
-  res = send_SMS()
+  res = send_SMS();
 
 #endif
 
