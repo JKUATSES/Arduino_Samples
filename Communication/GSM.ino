@@ -1,5 +1,17 @@
 
+/*
 
+
+Setup:
+First, download the DHT11 library from here: http://playground.arduino.cc/Main/DHTLib
+
+Hardware connections: DHT11 positive pin to arduino 5V
+                      DHT11 negative pin to ground
+                      DHT11 S pin to Arduino Analog A0 (Can be connected to any analog pin)
+
+Written 11 November 2019
+by Sackey Freshia
+*/
 
 //change this if you are using a different modem
 #define TINY_GSM_MODEM_SIM800
@@ -13,7 +25,7 @@
 
 // Set serial for debug console (to the Serial Monitor, default speed 115200)
 #define SerialMon Serial
-#define SerialAT Serial
+#define SerialAT Serial1
 #define TINY_GSM_USE_GPRS true
 
 #define TINY_GSM_USE_SMS true
